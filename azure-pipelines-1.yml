@@ -5,10 +5,7 @@
 
 trigger:
 - master
-- task: IISWebAppDeploymentOnMachineGroup@0
-  inputs:
-    WebSiteName: 'https://webapppipeline.azurewebsites.net/'
-    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
+
 pool:
   vmImage: 'windows-latest'
 
@@ -17,10 +14,13 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-
+- task: PublishBuildArtifacts@1
 - script: |
     npm install
     npm run build
   displayName: 'npm install and build'
+
+ 
+ 
 
   
