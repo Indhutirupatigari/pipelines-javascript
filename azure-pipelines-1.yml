@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: NodeTool@1
+- task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
@@ -20,4 +20,4 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-  -task: PublishBuildArtifacts@1
+  
