@@ -5,7 +5,10 @@
 
 trigger:
 - master
-
+- task: IISWebAppDeploymentOnMachineGroup@0
+  inputs:
+    WebSiteName: 'https://webapppipeline.azurewebsites.net/'
+    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
 pool:
   vmImage: 'windows-latest'
 
